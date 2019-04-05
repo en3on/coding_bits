@@ -1,0 +1,32 @@
+<div class="profile-page-container">
+  <div class="profile-container">
+    <div class="profile-picture-container"><div class="profile-picture"></div></div>
+    
+    <div class="name-container">
+      <h1 id="profile-username" class="display-3 text-center"><%= @user.username %></h1>
+    </div>
+    <div class="new-bit-container">
+      <a href="/new_bit"><div class="btn btn-primary">New Bit</div></a>
+    </div>
+  </div>
+
+  <div class="bits-container">
+    <% @user.bits.each do |bit| %>
+      <div class="bit-card card">
+        <div class="card-body">
+          <h4 class="card-title"><%= bit.title %><a class="delete-bit">Delete</a></h4>
+          <% authour = User.find(bit.user_id).username %>
+          <h6 class="card-subtitle mb-2 text-muted"><%= authour %></h6>
+          <p class="card-text">
+            <% if bit.content.length > 30 %>
+              <%= bit.content[0, 30] + "..." %>
+            <% else %>
+              <%= bit.content %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+

@@ -1,0 +1,23 @@
+<div class="login-page-background">
+</div>
+<% if flash[:notice] %>
+  <div id="login-error" class="alert alert-danger" role="alert"><%= flash[:notice] %></div>
+<% end %>
+<div class="container login-container">
+  <div class="login-form-container">
+    <div id="login-header"><h1>Log In</h1></div>
+    <div class="form-container">
+      <form action="/login" method="POST">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" class="form-control" id="username" name="username" placeholder="username">
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="password">
+        </div>
+        <button type="submit" class="btn btn-primary">Log In</button>
+      </form>
+    </div>
+  </div>
+</div>

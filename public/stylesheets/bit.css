@@ -1,0 +1,9 @@
+.bit-card {
+  margin: 10px 0;
+}
+
+.bit-delete {
+  float: right;
+  padding: 10px 20px;
+  color: #d00;
+}

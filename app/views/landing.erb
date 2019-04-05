@@ -1,0 +1,17 @@
+<% if flash[:notice] %>
+  <div class="alert alert-success alert-at-top" role="alert"><%= flash[:notice] %></div>
+<% end %>
+<div class="landing-background"></div>
+<div class="landing-body">
+  <div class="container landing-container">
+    <div class="jumbotron vertical-center">
+      <h1 class="display-4 text-center">Welcome to Coding Bits</h1>
+      <p class="lead text-muted text-center">The site made by developers <em>for</em> developers, to share funny experiences in the <strong>coding workplace</strong></p>
+      <hr class="my-2">
+      <p class="text-center">Share your experiences with the world!</p>
+      <div id="jumbo-button-container">
+        <a class="btn btn-primary" href="/signup">Sign Up</a>
+      </div>
+    </div>
+  </div>
+</div>

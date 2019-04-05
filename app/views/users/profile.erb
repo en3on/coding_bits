@@ -1,0 +1,44 @@
+<div class="profile-page-background"></div>
+<% if flash[:deleted] %>
+  <div id="bit-deletion-alert" class="alert alert-info" role="alert"><%= flash[:deleted] %></div>
+<% end %>
+<div class="profile-page-container">
+  <div class="profile-container">
+    <div class="profile-picture-container"><div class="profile-picture"></div></div>
+    
+    <div class="name-container">
+      <h1 id="profile-username" class="display-3 text-center"><%= @user.username %></h1>
+    </div>
+    <div class="new-bit-container">
+      <a href="/new_bit"><div class="btn btn-primary">New Bit</div></a>
+    </div>
+  </div>
+
+  <div class="bits-container container">
+    <% @user.bits.each do |bit| %>
+        <div class="bit-card card">
+          <div class="row">
+            <div class="col-md-10">
+              <div class="card-body">
+                <h4 class="card-title"><%= bit.title %></h4>
+                <% authour = User.find(bit.user_id).username %>
+                <h6 class="card-subtitle mb-2 text-muted"><%= authour %></h6>
+                <p class="card-text">
+                  <% if bit.content.length > 30 %>
+                    <%= bit.content[0, 30] + "..." %>
+                  <% else %>
+                    <%= bit.content %>
+                  <% end %>
+                </p>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <a class="bit-delete" href="/delete?bit_id=<%= bit.id %>">Delete</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+

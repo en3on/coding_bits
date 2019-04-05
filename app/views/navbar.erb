@@ -1,0 +1,18 @@
+<nav class="navbar navbar-default">
+  <div class="navbar-header">
+    <a href="/"><h3 class="navbar-brand">Coding Bits</h3></a>
+  </div>
+  <div class="navbar-buttons navbar-right">
+    <% if session[:user_id] %>
+      <a href="/profile"><div class="signed-in-nav">
+        <h5 id="navbar-username"><%= User.find(session[:user_id]).username %></h5>
+        <div id="navbar-signed-in" class="profile-picture"></div>
+        </div></a>
+        <!-- Add action for viewing home -->
+    <% else %>
+      <a href="/signup"><button class="btn btn-default navbar-btn">Sign Up</button></a>
+      <a href="/login"><button class="btn btn-default navbar-btn">Sign In</button></a>
+    <% end %>
+  </div>
+</nav>
+
